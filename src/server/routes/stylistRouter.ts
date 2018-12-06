@@ -14,8 +14,34 @@ stylists.get('/', (req, res, next) => {
             return err;
         })
 });
-// TODO: Need to add routes for all other actions
-// get by api/id
-// post new data
+
+stylists.get('/:id', async (req, res, next) => {
+    try {
+      const stylist = await Stylist.scope(req.query['scope'])
+      .findById(req.params['id']);
+      res.json(stylist);
+    } catch (e) {
+      next(e);
+    }
+  });
+// post
+stylists.post('/', async (req, res, next) => {
+    try {
+      console.log(req.body);
+      const stylist = await Stylist.create(req.body);
+      res.status(201).json(stylist);
+    } catch (e) {
+      next(e);
+    }
+  });
 // update api/id
+stylists.put('/:id', async (req, res, next) => {
+    try {
+      await Stylist
+      .update<Stylist>(req.body, {where: {id: req.params['id']}});
+      res.sendStatus(200);
+    } catch (e) {
+      next(e);
+    }
+  });
 // delete api/id
