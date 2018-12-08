@@ -1,5 +1,7 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Stylist } from './models/stylistmodel';
+import { Appointment } from './models/appointmentmodel';
+import { Client } from './models/clientmodel';
 import { dbconfig } from './config'; // DB connection parameters
 
 export const sequelize = new Sequelize({
@@ -12,9 +14,11 @@ export const sequelize = new Sequelize({
 });
 
 sequelize.addModels([Stylist]);
+sequelize.addModels([Appointment]);
+sequelize.addModels([Client]);
 
-//initializeDatabase();
-populateData();
+initializeDatabase();
+//populateData();
 
 sequelize.authenticate().then(() => {
   console.log("Connected to DB");
@@ -36,11 +40,11 @@ function initializeDatabase() {
 }
 
 function populateData() {
-  const mystylist = new Stylist({ country: 'Ireland', exchangerate: 100 });
+  const mystylist = new Stylist({ name: 'Ireland', contact_number: 100 });
 
   mystylist.save()
     .then(() => {
-      console.log("City " + mystylist.country + " added to DB");
+      console.log("Stylist " + mystylist.name + " added to DB");
     })
     .catch((err) => {
       console.log(err);

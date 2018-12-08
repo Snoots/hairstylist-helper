@@ -1,13 +1,25 @@
 import { Table, Column, Model, CreatedAt, UpdatedAt } from 'sequelize-typescript';
 
 @Table
-export class Stylist extends Model<Stylist> {
+export class Client extends Model<Client> {
 
     @Column
     name: string;
 
     @Column
+    name_short: string;
+
+    @Column
     contact_number: number;
+
+    @Column
+    email: number;
+
+    @Column
+    address: number;
+
+    @Column
+    birthday: number;
 
     @CreatedAt
     @Column
