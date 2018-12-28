@@ -1,6 +1,6 @@
 import * as express from 'express';
 import {sequelize} from './database';
-import { stylists } from './routes/stylistRouter';
+import { stylists } from './routes/stylistrouter';
 
 const hostname = 'localhost';
 const port = 3000;
