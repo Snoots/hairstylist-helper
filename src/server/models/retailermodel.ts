@@ -1,19 +1,16 @@
 import { Table, Column, Model, CreatedAt, UpdatedAt } from 'sequelize-typescript';
 
 @Table
-export class RetailInventory extends Model<RetailInventory> {
+export class Retailer extends Model<Retailer> {
 
     @Column
-    stylist_id: number;
+    name: string;
 
     @Column
-    retail_id: number;
+    phone_number: number;
 
     @Column
-    quantity: number;
-
-    @Column
-    salon_id: number;
+    address: number;
 
     @CreatedAt
     @Column

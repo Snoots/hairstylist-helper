@@ -7,7 +7,7 @@ export class Stylist extends Model<Stylist> {
     name: string;
 
     @Column
-    contact_number: number;
+    phone_number: number;
 
     @CreatedAt
     @Column

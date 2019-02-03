@@ -4,25 +4,25 @@ import { Table, Column, Model, CreatedAt, UpdatedAt } from 'sequelize-typescript
 export class Appointment extends Model<Appointment> {
 
     @Column
-    client_id: string;
+    client_id: number;
 
     @Column
-    date: string;
+    date: Date;
 
     @Column
-    start_time: string;
+    start_time: number;
 
     @Column
-    end_time: string;
+    end_time: number;
 
     @Column
-    stylist_id: string;
+    stylist_id: number;
 
     @Column
-    color_card_id: string;
+    color_card_id: number;
 
     @Column
-    amount_charged: string;
+    amount_charged: number;
 
     @Column
     service_type: string;

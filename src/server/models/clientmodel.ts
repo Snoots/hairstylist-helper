@@ -10,7 +10,7 @@ export class Client extends Model<Client> {
     name_short: string;
 
     @Column
-    contact_number: number;
+    phone_number: number;
 
     @Column
     email: number;
